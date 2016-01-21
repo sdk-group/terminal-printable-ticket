@@ -1,0 +1,92 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/terminal-printable-ticket/ticket-print-styles.html">
+
+<dom-module id="terminal-printable-ticket">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <div id="ticket-print-view">
+      <div style="font-family:Arial; text-align: left; font-size: 12px">
+        <div style="margin-left:auto; margin-right: auto; width: 50%;">
+          <img src="/iris/assets/ui_uploads/logo-ticket.png" width="100%" border="0" />
+        </div>
+        <div style="text-align: left; font-size: 40px; border: 16px double black; margin-left: 50px; margin-right: 50px">
+          <span id="OFFICE_CODE" style="font-size:70px; font-weight:bold">КОД_ОФИСА</span>
+          <br>
+          <div style="text-align: center; margin-left:auto; margin-right: auto; width: 90%;">Номер очереди</div>
+          <div id="TICKET_ID" style="font-size:200px; font-weight:bold; text-align: center; margin-left:auto; margin-right: auto; width: 90%;">НОМЕР_ТАЛОНА</div>
+          <div id="USER_NAME_DIV">
+            <div id="USER_NAME" style="font-size:24px; text-align: center; margin-left:auto; margin-right: auto; width: 90%;">ФИО_ПОСЕТИТЕЛЯ</div>
+          </div>
+          <div id="QUEUE_POSITION_DIV">
+            <div style="text-align: center; margin-left:auto; margin-right: auto; width: 90%;">
+              <span>Перед вами &nbsp;</span>
+              <span id="QUEUE_POSITION">ЧЕЛОВЕК_В_ОЧЕРЕДИ</span>
+              <span>&nbsp;чел.</span>
+            </div>
+          </div>
+          <span>Число дел: &nbsp;</span>
+          <span id="SVC_COUNT">ЧИСЛО_ДЕЛ</span>
+          <br>
+          <span>ОИВ: &nbsp;</span>
+          <span id="OIV">ОИВ</span>
+          <br>
+          <div style="font-size:14px; text-align: center; margin-left:auto; margin-right: auto; width: 90%;">Организация</div>
+          <span id="OFFICE_ADDRESS">АДРЕС_ОФИСА</span>
+          <br>
+          <span id="TICKET_TYPE">ТИП_ТАЛОНА</span>
+          <br>
+          <div id="SVC_CODE_DIV">
+            <span>Код услуги: &nbsp;</span>
+            <span id="SVC_CODE">КОД_УСЛУГИ</span>
+            <br>
+          </div>
+          <span>Наименование услуги: &nbsp;</span>
+          <span id="SVC_NAME">НАИМЕНОВАНИЕ_УСЛУГИ</span>
+          <br>
+          <span>Окна: &nbsp;</span>
+          <span id="SVC_WINDOW_NUMBERS" style="font-size:150px; font-weight:bold">ОКНА_ОБСЛУЖИВАНИЯ</span>
+          <br>
+          <div id="EMPLOYEE_DIV" name="EMPLOYEE_DIV">
+            <span>Операционист: &nbsp;</span>
+            <span id="EMPLOYEE">ФИО_ОПЕРАЦИОНИСТ</span>
+            <br>
+          </div>
+          <div id="TICKET_ADD_TEXT" style="font-size:12px; text-align: center; margin-left:auto; margin-right: auto; width: 90%;">РЕКЛАМНЫЙ_ТЕКСТ</div>
+          <br>
+          <div id="TICKET_BARCODE" style="text-align: center; margin-left:auto; margin-right: auto; width: 70%;">ШТРИХ_КОД</div>
+          <br>
+          <div id="PRINT_TIME">
+            <span style="font-size:12px;">Время приёма посетителя &nbsp;</span>
+            <span id="TICKET_DATE">ДАТА_ТАЛОНА</span>
+            <span id="TICKET_TIME">ВРЕМЯ_ТАЛОНА</span>
+          </div>
+          <div id="PRINT_REGISTRATION_TIME">
+            <span style="font-size:12px;">Время записи посетителя &nbsp;</span>
+            <span id="TICKET_REGISTRATION_DATE">ДАТА_РЕГИСТРАЦИИ_ТАЛОНА</span>
+            <span id="TICKET_REGISTRATION_TIME">ВРЕМЯ_РЕГИСТРАЦИИ_ТАЛОНА</span>
+          </div>
+          <span style="font-size:24px;">Дата/время выдачи талона &nbsp;</span>
+          <span id="DATE">ДАТА_ВЫДАЧИ_ТАЛОНА</span>
+          <span>&nbsp;</span>
+          <span id="TIME">ВРЕМЯ_ВЫДАЧИ_ТАЛОНА</span>
+          <br>
+          <span>Код талона &nbsp;</span>
+          <span id="TICKET_CODE" style="font-weight:bold">ДАТА_НОМЕР_ТАЛОНА</span>
+        </div>
+      </div>
+    </div>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'terminal-printable-ticket',
+      ready() {}
+    });
+  </script>
+</dom-module>
