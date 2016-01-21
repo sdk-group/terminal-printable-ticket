@@ -10,83 +10,107 @@
       }
     </style>
 
-    <div id="ticket-print-view">
-      <div style="font-family:Arial; text-align: left; font-size: 12px">
-        <div style="margin-left:auto; margin-right: auto; width: 50%;">
-          <img src="/iris/assets/ui_uploads/logo-ticket.png" width="100%" border="0" />
-        </div>
-        <div style="text-align: left; font-size: 40px; border: 16px double black; margin-left: 50px; margin-right: 50px">
-          <span id="OFFICE_CODE" style="font-size:70px; font-weight:bold">КОД_ОФИСА</span>
-          <br>
-          <div style="text-align: center; margin-left:auto; margin-right: auto; width: 90%;">Номер очереди</div>
-          <div id="TICKET_ID" style="font-size:200px; font-weight:bold; text-align: center; margin-left:auto; margin-right: auto; width: 90%;">НОМЕР_ТАЛОНА</div>
-          <div id="USER_NAME_DIV">
-            <div id="USER_NAME" style="font-size:24px; text-align: center; margin-left:auto; margin-right: auto; width: 90%;">ФИО_ПОСЕТИТЕЛЯ</div>
-          </div>
-          <div id="QUEUE_POSITION_DIV">
-            <div style="text-align: center; margin-left:auto; margin-right: auto; width: 90%;">
-              <span>Перед вами &nbsp;</span>
-              <span id="QUEUE_POSITION">ЧЕЛОВЕК_В_ОЧЕРЕДИ</span>
-              <span>&nbsp;чел.</span>
-            </div>
-          </div>
-          <span>Число дел: &nbsp;</span>
-          <span id="SVC_COUNT">ЧИСЛО_ДЕЛ</span>
-          <br>
-          <span>ОИВ: &nbsp;</span>
-          <span id="OIV">ОИВ</span>
-          <br>
-          <div style="font-size:14px; text-align: center; margin-left:auto; margin-right: auto; width: 90%;">Организация</div>
-          <span id="OFFICE_ADDRESS">АДРЕС_ОФИСА</span>
-          <br>
-          <span id="TICKET_TYPE">ТИП_ТАЛОНА</span>
-          <br>
-          <div id="SVC_CODE_DIV">
-            <span>Код услуги: &nbsp;</span>
-            <span id="SVC_CODE">КОД_УСЛУГИ</span>
-            <br>
-          </div>
-          <span>Наименование услуги: &nbsp;</span>
-          <span id="SVC_NAME">НАИМЕНОВАНИЕ_УСЛУГИ</span>
-          <br>
-          <span>Окна: &nbsp;</span>
-          <span id="SVC_WINDOW_NUMBERS" style="font-size:150px; font-weight:bold">ОКНА_ОБСЛУЖИВАНИЯ</span>
-          <br>
-          <div id="EMPLOYEE_DIV" name="EMPLOYEE_DIV">
-            <span>Операционист: &nbsp;</span>
-            <span id="EMPLOYEE">ФИО_ОПЕРАЦИОНИСТ</span>
-            <br>
-          </div>
-          <div id="TICKET_ADD_TEXT" style="font-size:12px; text-align: center; margin-left:auto; margin-right: auto; width: 90%;">РЕКЛАМНЫЙ_ТЕКСТ</div>
-          <br>
-          <div id="TICKET_BARCODE" style="text-align: center; margin-left:auto; margin-right: auto; width: 70%;">ШТРИХ_КОД</div>
-          <br>
-          <div id="PRINT_TIME">
-            <span style="font-size:12px;">Время приёма посетителя &nbsp;</span>
-            <span id="TICKET_DATE">ДАТА_ТАЛОНА</span>
-            <span id="TICKET_TIME">ВРЕМЯ_ТАЛОНА</span>
-          </div>
-          <div id="PRINT_REGISTRATION_TIME">
-            <span style="font-size:12px;">Время записи посетителя &nbsp;</span>
-            <span id="TICKET_REGISTRATION_DATE">ДАТА_РЕГИСТРАЦИИ_ТАЛОНА</span>
-            <span id="TICKET_REGISTRATION_TIME">ВРЕМЯ_РЕГИСТРАЦИИ_ТАЛОНА</span>
-          </div>
-          <span style="font-size:24px;">Дата/время выдачи талона &nbsp;</span>
-          <span id="DATE">ДАТА_ВЫДАЧИ_ТАЛОНА</span>
-          <span>&nbsp;</span>
-          <span id="TIME">ВРЕМЯ_ВЫДАЧИ_ТАЛОНА</span>
-          <br>
-          <span>Код талона &nbsp;</span>
-          <span id="TICKET_CODE" style="font-weight:bold">ДАТА_НОМЕР_ТАЛОНА</span>
-        </div>
+    <div style="float: left; margin-left: auto; margin-right: auto; width: 30%;">
+      <img border="0" alt="" src="/iris_test/assets/ui_uploads/logo-ticket.png" style="width: 60px;" />&nbsp;</div>
+
+    <div style="font-family: px-sans, sans-serif; float: left; width: 70%; margin-top: 0px;">
+      <span style="font-family: px-sans, sans-serif; font-weight: bold; font-size: 8px;">МФЦ Долгопрудный</span>
+      <br />
+      <span style="font-family: px-sans, sans-serif; font-weight: bold; font-size: 8px;">Московская область</span>
+    </div>
+
+    <div style="float: left; width: 95%; margin: 0px auto; border-top: 3px solid black;">
+
+      <!--
+            <span id="OFFICE_CODE">КОД_ОФИСА</span>
+            <span id="OIV">ОИВ</span>
+            <span id="OFFICE_ADDRESS">АДРЕС_ОФИСА</span>
+            <span id="TICKET_TYPE">ТИП_ТАЛОНА</span>
+            	<div id="SVC_CODE_DIV">
+    		<span id="SVC_CODE">КОД_УСЛУГИ</span>
+    		</div>
+                    <div id="EMPLOYEE_DIV">
+                    <span id="EMPLOYEE_FIO">ФИО_ОПЕРАЦИОНИСТ</span>
+                    <span id="EMPLOYEE">ФИ_ОПЕРАЦИОНИСТ</span>
+                    </div>
+            <div id="TICKET_ADD_TEXT" style="font-size:12px; text-align: center; margin-left:auto; margin-right: auto; width: 90%;">РЕКЛАМНЫЙ_ТЕКСТ</div>
+            <div id="TICKET_BARCODE" style="text-align: center; margin-left:auto; margin-right: auto; width: 70%;">ШТРИХ_КОД</div>
+    	<span id="SVC_WINDOW_NUMBERS">НОМЕР_ОКНА</span>
+    	<span id="TICKET_CODE">КОД_ТАЛОНА</span>
+            -->
+
+      <div style="font-family: px-sans, sans-serif; font-weight: bold; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">НОМЕР ТАЛОНА
       </div>
+
+      <div id="TICKET_ID" style="font-family: px-sans, sans-serif; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 44px; font-weight: bold;">НОМЕР_ТАЛОНА
+      </div>
+
+      <div style="float: center; width: 40%; margin: 0px auto; border-top: 3px solid black;"></div>
+
+      <div style="font-family: px-sans, sans-serif; font-size: 16px; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
+        <span style="text-align: left;">УСЛУГА</span>
+      </div>
+
+      <!--<div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 8px;">
+    <span id="SVC_NAME" style="text-align: left">НАИМЕНОВАНИЕ_УСЛУГИ</span>
+    </div> -->
+
+      <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 8px;">
+        <span id="SVC_DESC" style="text-align: left">ОПИСАНИЕ_УСЛУГИ</span>
+      </div>
+
+      <div id="USER_NAME_DIV" style="font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
+        <span> ФИО:</span>
+        <span id="USER_NAME" style="font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold;">ФИО_ПОСЕТИТЕЛЯ
+          <span>
+      </div>
+
+      <div id="PRINT_TIME" style="font-size: 9px; font-weight: bold; font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
+        <span>Время приема: </span>
+        <span id="TICKET_DATE">ДАТА</span>
+        <span id="TICKET_TIME">ВРЕМЯ</span>
+      </div>
+
+      <div id="QUEUE_POSITION_DIV" style="font-size: 9px; font-weight: bold; font-family: px-sans, sans-serif; float: left; text-align: center; margin-left: auto; margin-right: auto; width: 100%;">
+        <span>Перед вами:</span>
+        <span id="QUEUE_POSITION">ЧЕЛОВЕК_В_ОЧЕРЕДИ</span>
+        <span> чел.</span>
+      </div>
+
+      <div style="font-family: px-sans, sans-serif; float: left; width: 100%; margin: 0px auto; border-top: 3px solid black;"></div>
+      <!--        <div id="TICKET_BARCODE" style="text-align: center; margin-left:auto; margin-right: auto; width: 100%;">ШТРИХ_КОД</div>
+    <div style="font-family: px-sans, sans-serif; float: left; width: 100%; margin: 0px auto; border-top: 3px solid black;"></div> -->
+
+      <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 60%; font-size: 10px;">
+        <span>Число дел:</span>
+        <span id="SVC_COUNT" style="font-weight: bold;">ЧИСЛО_ДЕЛ</span>
+      </div>
+
+      <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 40%;">
+        <span style="text-align: center; font-size: 10px">Талон выдан:</span>
+      </div>
+
+      <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 60%; font-size: 10px;">
+        <span>Секретный код:</span>
+        <span id="SECRET_CODE" style="font-weight: bold;">СЕКРЕТНЫЙ_НОМЕР_ТАЛОНА</span>
+      </div>
+
+      <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 40%; font-size: 10px;">
+        <span id="DATE" style="font-weight: bold;">ДАТА</span>
+        <span id="TIME" style="font-weight: bold;">ВРЕМЯ</span>
+      </div>
+
+
     </div>
 
   </template>
   <script>
     Polymer({
       is: 'terminal-printable-ticket',
-      ready() {}
+      print() {
+        window.print();
+        return Promise.resolve(true);
+      }
     });
   </script>
 </dom-module>
