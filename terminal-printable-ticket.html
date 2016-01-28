@@ -14,9 +14,9 @@
       <img border="0" alt="" src="/iris_test/assets/ui_uploads/logo-ticket.png" style="width: 60px;" />&nbsp;</div>
 
     <div style="font-family: px-sans, sans-serif; float: left; width: 70%; margin-top: 0px;">
-      <span style="font-family: px-sans, sans-serif; font-weight: bold; font-size: 8px;">МФЦ Долгопрудный</span>
+      <span style="font-family: px-sans, sans-serif; font-weight: bold; font-size: 8px;">[[office.1.org_label]]</span>
       <br />
-      <span style="font-family: px-sans, sans-serif; font-weight: bold; font-size: 8px;">Московская область</span>
+      <!--<span style="font-family: px-sans, sans-serif; font-weight: bold; font-size: 8px;">Московская область</span> -->
     </div>
 
     <div style="float: left; width: 95%; margin: 0px auto; border-top: 3px solid black;">
@@ -42,13 +42,13 @@
       <div style="font-family: px-sans, sans-serif; font-weight: bold; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">НОМЕР ТАЛОНА
       </div>
 
-      <div id="TICKET_ID" style="font-family: px-sans, sans-serif; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 44px; font-weight: bold;">НОМЕР_ТАЛОНА
+      <div id="TICKET_ID" style="font-family: px-sans, sans-serif; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 44px; font-weight: bold;">[[ticket.label]]
       </div>
 
       <div style="float: center; width: 40%; margin: 0px auto; border-top: 3px solid black;"></div>
 
       <div style="font-family: px-sans, sans-serif; font-size: 16px; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
-        <span style="text-align: left;">УСЛУГА</span>
+        <span style="text-align: left;">[[service.service_label]]</span>
       </div>
 
       <!--<div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 8px;">
@@ -56,26 +56,26 @@
     </div> -->
 
       <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 8px;">
-        <span id="SVC_DESC" style="text-align: left">ОПИСАНИЕ_УСЛУГИ</span>
+        <span id="SVC_DESC" style="text-align: left">[[service.service_description]]</span>
       </div>
 
       <div id="USER_NAME_DIV" style="font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
         <span> ФИО:</span>
-        <span id="USER_NAME" style="font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold;">ФИО_ПОСЕТИТЕЛЯ
-          <span>
+        <span id="USER_NAME" style="font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold;">[[ticket.fio]]<span>
       </div>
 
-      <div id="PRINT_TIME" style="font-size: 9px; font-weight: bold; font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
+    <!--  <div id="PRINT_TIME" style="font-size: 9px; font-weight: bold; font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
         <span>Время приема: </span>
         <span id="TICKET_DATE">ДАТА</span>
         <span id="TICKET_TIME">ВРЕМЯ</span>
-      </div>
+      </div>-->
 
-      <div id="QUEUE_POSITION_DIV" style="font-size: 9px; font-weight: bold; font-family: px-sans, sans-serif; float: left; text-align: center; margin-left: auto; margin-right: auto; width: 100%;">
+
+      <!--<div id="QUEUE_POSITION_DIV" style="font-size: 9px; font-weight: bold; font-family: px-sans, sans-serif; float: left; text-align: center; margin-left: auto; margin-right: auto; width: 100%;">
         <span>Перед вами:</span>
         <span id="QUEUE_POSITION">ЧЕЛОВЕК_В_ОЧЕРЕДИ</span>
         <span> чел.</span>
-      </div>
+      </div>-->
 
       <div style="font-family: px-sans, sans-serif; float: left; width: 100%; margin: 0px auto; border-top: 3px solid black;"></div>
       <!--        <div id="TICKET_BARCODE" style="text-align: center; margin-left:auto; margin-right: auto; width: 100%;">ШТРИХ_КОД</div>
@@ -83,7 +83,7 @@
 
       <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 60%; font-size: 10px;">
         <span>Число дел:</span>
-        <span id="SVC_COUNT" style="font-weight: bold;">ЧИСЛО_ДЕЛ</span>
+        <span id="SVC_COUNT" style="font-weight: bold;">[[ticket.service_count]]</span>
       </div>
 
       <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 40%;">
@@ -92,12 +92,12 @@
 
       <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 60%; font-size: 10px;">
         <span>Секретный код:</span>
-        <span id="SECRET_CODE" style="font-weight: bold;">СЕКРЕТНЫЙ_НОМЕР_ТАЛОНА</span>
+        <span id="SECRET_CODE" style="font-weight: bold;">[[ticket.code]]</span>
       </div>
 
       <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 40%; font-size: 10px;">
-        <span id="DATE" style="font-weight: bold;">ДАТА</span>
-        <span id="TIME" style="font-weight: bold;">ВРЕМЯ</span>
+        <span id="DATE" style="font-weight: bold;">[[_timeToDateString(ticket.booking_date)]]</span>
+        <span id="TIME" style="font-weight: bold;">[[_timeToTimeString(ticket.booking_date)]]</span>
       </div>
 
 
@@ -105,11 +105,26 @@
 
   </template>
   <script>
+    'use strict'
     Polymer({
       is: 'terminal-printable-ticket',
-      print() {
+      print(data) {
+        data = data || {};
+        this.set('ticket', data.ticket);
+        this.set('service', data.service);
+        this.set('office', data.office);
         window.print();
         return Promise.resolve(true);
+      },
+      _timeToDateString(time) {
+        return (new Date(time)).toLocaleDateString();
+      },
+      _timeToTimeString(time) {
+        return (new Date(time)).toLocaleTimeString();
+      },
+      _timeToDay(time) {
+        let day = (new Date(time)).getDay() - 1;
+        return ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'][day];
       }
     });
   </script>
