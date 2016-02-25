@@ -1,0 +1,37 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<dom-module id="ticket-time-transform">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <iris-shared-entities id="timezone" namespace="timezone" key="name" value="{{tz}}"></iris-shared-entities>
+
+    [[transformed]]
+  </template>
+  <script>
+    Polymer({
+      is: 'ticket-time-transform',
+      properties: {
+        data: {
+          type: String,
+          observer: '_dataChanged'
+        },
+        format: {
+          type: String
+        },
+        transformed: {
+          type: String,
+          computed: '_format(data, format)'
+        }
+      },
+      _format(time, format) {
+        console.log(this.tz);
+
+        return moment(time, 'x').tz(this.tz).format(format);
+      }
+    });
+  </script>
+</dom-module>
