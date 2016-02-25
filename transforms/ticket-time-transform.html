@@ -7,30 +7,30 @@
         display: block;
       }
     </style>
-    <iris-shared-entities id="timezone" namespace="timezone" key="name" value="{{tz}}"></iris-shared-entities>
-
+    <iris-shared-entities id="timezone" namespace="timezone"></iris-shared-entities>
     [[transformed]]
   </template>
   <script>
+    'use strict'
     Polymer({
       is: 'ticket-time-transform',
       properties: {
         data: {
-          type: String,
-          observer: '_dataChanged'
+          type: String
         },
         format: {
           type: String
         },
         transformed: {
           type: String,
+          notify: true,
           computed: '_format(data, format)'
         }
       },
       _format(time, format) {
-        console.log(this.tz);
+        let z = this.$.timezone.get('name');
 
-        return moment(time, 'x').tz(this.tz).format(format);
+        return moment(time, 'x').tz(z).format(format);
       }
     });
   </script>

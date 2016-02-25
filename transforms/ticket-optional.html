@@ -1,0 +1,34 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<dom-module id="ticket-optional">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <template is="dom-if" if="[[visible]]">
+      <content></content>[[data]]
+    </template>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'ticket-optional',
+      properties: {
+        data: {
+          type: String,
+          observer: '_dataChanged'
+        },
+        visible: {
+          type: Boolean,
+          value: false
+        }
+      },
+      _dataChanged() {
+        if (this.data) this.set('visible', true);
+      }
+    });
+  </script>
+</dom-module>
