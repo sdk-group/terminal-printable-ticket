@@ -90,8 +90,13 @@
       </div>
 
       <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 40%; font-size: 10px;">
-        <span id="DATE" style="font-weight: bold;"><ticket-time-transform data="[[ticket.booking_date]]" format="Do MMM YYYY"></ticket-time-transform></span>
-        <span id="TIME" style="font-weight: bold;"><ticket-time-transform data="[[ticket.booking_date]]" format="H : mm"></ticket-time-transform></span>
+        <span style="font-weight: bold;"><ticket-time-transform data="[[ticket.booking_date]]" format="D.MM.YYYY H : mm"></ticket-time-transform></span>
       </div>
+  </template>
+</ticket-template-register>
+
+<ticket-template-register name="prebook">
+  <template>
+    Какой такой талончик? Ничего не знаю)
   </template>
 </ticket-template-register>
