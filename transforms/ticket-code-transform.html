@@ -1,0 +1,32 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<dom-module id="ticket-code-transform">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    [[transformed]]
+  </template>
+  <script>
+    'use strict'
+    Polymer({
+      is: 'ticket-code-transform',
+      properties: {
+        ticket: {
+          type: Object
+        },
+        transformed: {
+          type: String,
+          notify: true,
+          computed: '_detachPrefix(ticket)'
+        }
+      },
+      _detachPrefix(ticket) {
+        let code = ticket.code;
+        return code.slice(0, 3) + "-" + code.slice(3);
+      }
+    });
+  </script>
+</dom-module>

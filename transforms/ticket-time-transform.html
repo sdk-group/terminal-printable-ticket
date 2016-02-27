@@ -28,9 +28,8 @@
         }
       },
       _format(time, format) {
-        let z = this.$.timezone.get('name');
-
-        return moment(time, 'x').tz(z).format(format);
+        let office_timezone = this.$.timezone.get('name');
+        return moment(time, 'x').tz(office_timezone).format(format);
       }
     });
   </script>

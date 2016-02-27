@@ -1,0 +1,40 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<dom-module id="ticket-processing-time-transform">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <iris-shared-entities id="timezone" namespace="timezone"></iris-shared-entities>
+    <ticket-time-transform data="[[time]]" format="[[format]]"></ticket-time-transform>
+  </template>
+  <script>
+    'use strict'
+    Polymer({
+      is: 'ticket-processing-time-transform',
+      properties: {
+        ticket: {
+          type: Object
+        },
+        format: {
+          type: String
+        },
+        time: {
+          type: String,
+          notify: true,
+          computed: '_calcProcessingTime(ticket)'
+        }
+      },
+      _calcProcessingTime(ticket) {
+        let office_timezone = this.$.timezone.get('name');
+        let processing_date = ticket.dedicated_date;
+        let processing_start_time = ticket.time_description[0];
+        console.log(processing_date);
+        let fulltime = moment.tz(processing_date, office_timezone).add(processing_start_time, 's').format('x');
+        return fulltime;
+      }
+    });
+  </script>
+</dom-module>
