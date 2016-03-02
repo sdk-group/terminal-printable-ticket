@@ -47,6 +47,7 @@
           Polymer.Templatizer
         ],
         print(data) {
+          this.style.display = 'block';
           data = data || {};
           console.log(getTemplate(this.templateName));
           this.templatize(getTemplate(this.templateName));
@@ -61,6 +62,8 @@
 
 
           window.print();
+
+          this.style.display = 'none';
           return Promise.resolve(true);
         }
 
