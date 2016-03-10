@@ -1,6 +1,7 @@
 <link rel="import" href="../ticket-template-register.html">
 <link rel="import" href="../transforms/ticket-time-transform.html">
 <link rel="import" href="../transforms/ticket-code-transform.html">
+<link rel="import" href="../transforms/ticket-optional.html">
 <link rel="import" href="../transforms/ticket-processing-time-transform.html">
 
 
@@ -58,8 +59,10 @@
       </div>
 
       <div id="USER_NAME_DIV" style="font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
-        <span> ФИО:</span>
-        <span id="USER_NAME" style="text-transform: capitalize; font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold;">[[ticket.client.fio]]</span>
+        <ticket-optional data="[[ticket.client.fio]]">
+          <span> ФИО:</span>
+          <span id="USER_NAME" style="text-transform: capitalize; font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold;">[[ticket.client.fio]]</span>
+        </ticket-optional>
       </div>
 
       <!--  <div id="PRINT_TIME" style="font-size: 9px; font-weight: bold; font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
@@ -135,8 +138,10 @@
       </div>
 
       <div id="USER_NAME_DIV" style="font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
-        <span> ФИО:</span>
-        <span id="USER_NAME" style="text-transform: capitalize; font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold;">[[ticket.client.fio]]</span>
+        <ticket-optional data="[[ticket.client.fio]]">
+          <span> ФИО:</span>
+          <span id="USER_NAME" style="text-transform: capitalize; font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold;">[[ticket.client.fio]]</span>
+        </ticket-optional>
       </div>
 
 
