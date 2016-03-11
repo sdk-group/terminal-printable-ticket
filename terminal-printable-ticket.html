@@ -13,6 +13,8 @@
         position: relative;
       }
     </style>
+    <iris-shared-entities id="services" namespace="services"></iris-shared-entities>
+    <iris-shared-entities id="office" namespace="office"></iris-shared-entities>
     <div class="ticket-print-view">
       <div style="float: right; margin-left: auto; margin-right: auto; width: 100%;">
         <img border="0" alt="" src="/images/logo-bw.png" style="width: 120px; float: right;" />
@@ -46,25 +48,25 @@
         behaviors: [
           Polymer.Templatizer
         ],
-        print(data) {
+        print(ticket) {
           this.style.display = 'block';
-          data = data || {};
-          console.log(getTemplate(this.templateName));
+          ticket = ticket || {};
+
           this.templatize(getTemplate(this.templateName));
           this.clone = this.stamp({
-            ticket: data.ticket,
-            service: data.service,
-            office: data.office
+            ticket: ticket,
+            service: this.$.services.get(ticket.service),
+            office: this.$.office.get()
           });
 
           Polymer.dom(this.$.stamp).innerHTML = "";
           Polymer.dom(this.$.stamp).appendChild(this.clone.root);
 
+          return Promise.resolve(true).delay(300).then(() => {
+            window.print();
 
-          window.print();
-
-          this.style.display = 'none';
-          return Promise.resolve(true);
+            this.style.display = 'none';
+          });
         }
 
       });

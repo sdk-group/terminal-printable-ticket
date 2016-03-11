@@ -7,11 +7,7 @@
         display: block;
       }
     </style>
-
-    <template is="dom-if" if="[[visible]]">
-      <content></content>
-    </template>
-
+    <content></content>
   </template>
   <script>
     Polymer({
@@ -19,15 +15,18 @@
       properties: {
         data: {
           type: String,
-          observer: '_dataChanged'
+          value: false,
+          observer: 'computeVisible'
         },
-        visible: {
+        hidden: {
           type: Boolean,
-          value: false
+          reflectToAttribute: true,
+          value: true
         }
       },
-      _dataChanged() {
-        if (!_.isEmpty(this.data)) this.set('visible', true);
+      computeVisible() {
+        console.log(this.data, _.isEmpty(this.data));
+        this.set('hidden', _.isEmpty(this.data));
       }
     });
   </script>
