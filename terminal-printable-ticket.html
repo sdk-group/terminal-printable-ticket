@@ -1,7 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
 <link rel="import" href="../../bower_components/terminal-printable-ticket/ticket-print-styles.html">
-<link rel="import" href="templates/base.html">
+<link rel="import" href="templates/oren.html">
 
 <dom-module id="terminal-printable-ticket">
   <template>
@@ -15,8 +15,10 @@
     </style>
     <iris-shared-entities id="services" namespace="services"></iris-shared-entities>
     <iris-shared-entities id="office" namespace="office"></iris-shared-entities>
+    <iris-shared-entities id="hierarchy" namespace="hierarchy"></iris-shared-entities>
+
     <div class="ticket-print-view">
-      <div style="float: right; margin-left: auto; margin-right: auto; width: 100%;">
+      <div style="float: right; margin-left: auto; margin-right: auto; width: 40%;">
         <img border="0" alt="" src="/images/logo-bw.png" style="width: 120px; float: right;" />
       </div>
       <div id="stamp"> </div>
@@ -48,15 +50,20 @@
         behaviors: [
           Polymer.Templatizer
         ],
-        print(ticket) {
+        print(ticket, context) {
           this.style.display = 'block';
           ticket = ticket || {};
 
+          let hierarchy = _.values(this.$.hierarchy.get()) || [];
+          console.log(hierarchy);
+          console.log(hierarchy[hierarchy.length - 1]);
           this.templatize(getTemplate(this.templateName));
           this.clone = this.stamp({
             ticket: ticket,
             service: this.$.services.get(ticket.service),
-            office: this.$.office.get()
+            department: this.$.office.get(),
+            office: hierarchy[hierarchy.length - 1],
+            context: context
           });
 
           Polymer.dom(this.$.stamp).innerHTML = "";
