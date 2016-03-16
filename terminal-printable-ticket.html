@@ -55,8 +55,7 @@
           ticket = ticket || {};
 
           let hierarchy = _.values(this.$.hierarchy.get()) || [];
-          console.log(hierarchy);
-          console.log(hierarchy[hierarchy.length - 1]);
+
           this.templatize(getTemplate(this.templateName));
           this.clone = this.stamp({
             ticket: ticket,
