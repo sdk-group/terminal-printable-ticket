@@ -1,0 +1,52 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<dom-module id="ticket-operational-workstations">
+  <template>
+    <style>
+      :host {
+        display: inline;
+      }
+    </style>
+    Окна: [[transform(labels)]]
+  </template>
+  <script>
+    Polymer({
+      is: 'ticket-operational-workstations',
+      properties: {
+        labels: {
+          type: Boolean
+        }
+      },
+      transform(raw_labels) {
+        let labels = raw_labels.sort((a, b) => a - b);
+        let first = labels[0];
+        let prev = false;
+        let result = [];
+        _.forEach(labels, (label, index) => {
+
+          if (prev + 1 < label) {
+            if (first != prev) {
+              result.push(first + '-' + prev);
+            } else {
+              result.push(first);
+            }
+            first = label;
+          }
+          prev = label;
+
+          if (index == labels.length - 1) {
+            if (first != prev) {
+              result.push(first + '-' + prev);
+            } else {
+              result.push(first);
+            }
+            first = label;
+          }
+
+        });
+
+        return result.join(', ');
+      }
+    });
+  </script>
+</dom-module>

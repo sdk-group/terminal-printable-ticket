@@ -3,6 +3,7 @@
 <link rel="import" href="../transforms/ticket-code-transform.html">
 <link rel="import" href="../transforms/ticket-optional.html">
 <link rel="import" href="../transforms/ticket-processing-time-transform.html">
+<link rel="import" href="../transforms/ticket-operational-workstations-transform.html">
 
 
 
@@ -72,7 +73,7 @@
 
     <div class="ticket-block">
       <div style="padding-bottom: 15px; font-family: px-sans, sans-serif; font-size: 14px; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
-        <span style="text-align: left;">Зал 1. Окна 1-55.</span>
+        <span style="text-align: left;"><ticket-operational-workstations labels="[[context.ws_labels]]"></ticket-operational-workstations></span>
       </div>
       <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 45%; font-size: 10px">
         Л : льготный
@@ -161,20 +162,6 @@
     <div class="ticket-delimiter"></div>
 
     <div class="ticket-block">
-      <div style="padding-bottom: 15px; font-family: px-sans, sans-serif; font-size: 14px; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
-        <span style="text-align: left;">Зал 1. Окна 1-55.</span>
-      </div>
-      <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 45%; font-size: 10px">
-        Л : льготный
-      </div>
-      <div style="font-family: px-sans, sans-serif; float: right; margin-left: auto; margin-right: auto; text-align: center; width: 45%; font-size: 10px">
-        П : предварительная запись
-      </div>
-    </div>
-
-    <div class="ticket-delimiter"></div>
-
-    <div class="ticket-block">
       <div style="font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold;  text-align: left; width: 100%;">
         <ticket-optional data="[[ticket.user_info.fio]]">
           <span> Заявитель:</span>
@@ -251,7 +238,7 @@
 
     <div class="ticket-block">
       <div style="padding-bottom: 15px; font-family: px-sans, sans-serif; font-size: 14px; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
-        <span style="text-align: left;">Зал 1. Окна 1-55.</span>
+        <span style="text-align: left;"><ticket-operational-workstations labels="[[context.ws_labels]]"></ticket-operational-workstations></span>
       </div>
       <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 45%; font-size: 10px">
         Л : льготный
