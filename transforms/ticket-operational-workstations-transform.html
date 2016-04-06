@@ -18,7 +18,8 @@
         }
       },
       transform(raw_labels) {
-        let labels = raw_labels.sort((a, b) => a - b);
+        let labels = _.map(raw_labels, l => parseInt(l, 10)).sort((a, b) => a - b);
+
         let first = labels[0];
         let prev = false;
         let result = [];
