@@ -21,7 +21,7 @@
         let labels = _.map(raw_labels, l => parseInt(l, 10)).sort((a, b) => a - b);
 
         let first = labels[0];
-        let prev = false;
+        let prev = labels[0];
         let result = [];
         _.forEach(labels, (label, index) => {
 
