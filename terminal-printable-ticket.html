@@ -12,6 +12,7 @@
         z-index: 1000;
         position: relative;
       }
+
     </style>
     <iris-shared-entities id="services" namespace="services"></iris-shared-entities>
     <iris-shared-entities id="office" namespace="office"></iris-shared-entities>
@@ -19,21 +20,19 @@
 
     <div class="ticket-print-view">
       <div style="float: right; margin-left: auto; margin-right: auto; width: 30%;">
-        <img border="0" alt="" src="/images/logo-bw-short.png" style="height: 40px; float: right; padding-bottom: 5px;" />
+        <img border="0" alt="" src="../../images/logo-bw-short.png" style="height: 40px; float: right; padding-bottom: 5px;"/>
       </div>
-      <div id="stamp"> </div>
+      <div id="stamp"></div>
     </div>
 
   </template>
 
   <script>
-    (function() {
+    (function () {
       'use strict'
-      let _meta = Polymer.Base.create('iron-meta', {
-        type: 'iris-ticket-stamps'
-      });
+      let _meta = Polymer.Base.create('iron-meta', {type: 'iris-ticket-stamps'});
 
-      let getTemplate = function(name) {
+      let getTemplate = function (name) {
         let model = _meta.byKey(name);
         let template = model.getTemplate();
         return template;
@@ -47,9 +46,7 @@
             value: 'live'
           }
         },
-        behaviors: [
-          Polymer.Templatizer
-        ],
+        behaviors: [Polymer.Templatizer],
         print(ticket, context) {
           this.style.display = 'block';
           ticket = ticket || {};
