@@ -1,7 +1,8 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<link rel="import" href="../../bower_components/terminal-printable-ticket/ticket-print-styles.html">
+<link rel="import" href="ticket-print-styles.html">
 <link rel="import" href="templates/oren.html">
+<link rel="import" href="templates/bl.html">
 
 <dom-module id="terminal-printable-ticket">
   <template>
@@ -11,6 +12,14 @@
         color: black;
         z-index: 1000;
         position: relative;
+      }
+      .ticket-print-view {
+        display: none;
+      }
+      @media print {
+        .ticket-print-view {
+          display: block;
+        }
       }
 
     </style>
@@ -47,12 +56,12 @@
           }
         },
         behaviors: [Polymer.Templatizer],
-        print(ticket, context) {
+        init(ticket, context) {
           this.style.display = 'block';
           ticket = ticket || {};
 
           let hierarchy = _.values(this.$.hierarchy.get()) || [];
-
+          console.log('templateName', this.templateName);
           this.templatize(getTemplate(this.templateName));
           this.clone = this.stamp({
             ticket: ticket,
@@ -64,10 +73,10 @@
 
           Polymer.dom(this.$.stamp).innerHTML = "";
           Polymer.dom(this.$.stamp).appendChild(this.clone.root);
-
-          return Promise.resolve(true).delay(300).then(() => {
+        },
+        print() {
+          return Promise.resolve(true).then(() => {
             window.print();
-
             this.style.display = 'none';
           });
         }
