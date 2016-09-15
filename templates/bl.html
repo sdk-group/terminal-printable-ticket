@@ -19,7 +19,6 @@
         overflow: hidden;
         padding: 10px 0;
       }
-
     </style>
 
     <div style="font-family: px-sans, sans-serif; float: left; width: 65%; margin-top: 0px; font-size: 12px;">
@@ -98,7 +97,6 @@
         overflow: hidden;
         padding: 10px 0;
       }
-
     </style>
 
     <div style="font-family: px-sans, sans-serif; float: left; width: 65%; margin-top: 0px; font-size: 12px;">
@@ -129,10 +127,6 @@
 
     <div class="ticket-block">
       <div style="padding: 5px 0; font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 45%; font-size: 10px;">
-        <span>Число дел:</span>
-        <span id="SVC_COUNT" style="font-weight: bold;">[[ticket.service_count]]</span>
-      </div>
-      <div style="padding: 5px 0; font-family: px-sans, sans-serif; float: right; margin-left: auto; margin-right: auto; text-align: left; width: 45%; font-size: 10px;">
         <span>ПИН-код:</span>
         <ticket-code-transform ticket="[[ticket]]" style="font-weight: bold; display: inline;"></ticket-code-transform>
       </div>
@@ -187,7 +181,6 @@
         overflow: hidden;
         padding: 10px 0;
       }
-
     </style>
 
     <div style="font-family: px-sans, sans-serif; float: left; width: 65%; margin-top: 0px; font-size: 12px;">
@@ -226,22 +219,6 @@
         <span style="font-weight: bold;">
           <ticket-processing-time-transform style="display: inline-block;" ticket="[[ticket]]" format="D.MM.YYYY dd H:mm"></ticket-processing-time-transform>
         </span>
-      </div>
-    </div>
-
-    <div class="ticket-delimiter"></div>
-
-    <div class="ticket-block">
-      <div style="padding-bottom: 15px; font-family: px-sans, sans-serif; font-size: 14px; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
-        <span style="text-align: left;">
-          <ticket-operational-workstations labels="[[context.ws_labels]]"></ticket-operational-workstations>
-        </span>
-      </div>
-      <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 45%; font-size: 10px">
-        Л : льготный
-      </div>
-      <div style="font-family: px-sans, sans-serif; float: right; margin-left: auto; margin-right: auto; text-align: center; width: 45%; font-size: 10px">
-        П : предварительная запись
       </div>
     </div>
 
