@@ -75,10 +75,8 @@
           Polymer.dom(this.$.stamp).appendChild(this.clone.root);
         },
         print() {
-          return Promise.resolve(true).then(() => {
-            window.print();
-            this.style.display = 'none';
-          });
+          window.print();
+          this.style.display = 'none';
         }
 
       });
