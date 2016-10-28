@@ -6,6 +6,7 @@
       :host {
         display: inline;
       }
+
     </style>
     Окна: [[transform(labels)]]
   </template>
@@ -18,7 +19,10 @@
         }
       },
       transform(raw_labels) {
-        let labels = _.map(raw_labels, l => parseInt(l, 10)).sort((a, b) => a - b);
+        let decs = _.filter(raw_labels, l => parseInt(l, 10) == l);
+        let rest = _.filter(raw_labels, l => parseInt(l, 10) != l);
+
+        let labels = _.map(decs, l => parseInt(l, 10)).sort((a, b) => a - b);
 
         let first = labels[0];
         let prev = labels[0];
@@ -46,7 +50,7 @@
 
         });
 
-        return result.join(', ');
+        return _.concat(result, rest).join(', ');
       }
     });
   </script>
