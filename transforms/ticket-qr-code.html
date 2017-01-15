@@ -1,0 +1,42 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<dom-module id="ticket-qr-code">
+  <template>
+    <style>
+      :host {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+      }
+
+    </style>
+    <div id="qrcode"></div>
+  </template>
+  <script>
+    (function () {
+      'use strict'
+
+      Polymer({
+        is: 'ticket-qr-code',
+        properties: {
+          ticket: {
+            type: Object,
+            observer: "_makeCode"
+          }
+        },
+        _makeCode(ticket) {
+          let code = ticket.code;
+          let prefix = code.slice(0, 3);
+          let value = code.slice(3);
+          this.qrcode = this.qrcode || new QRCode(this.$.qrcode, {
+            width: 96,
+            height: 96
+          });
+          this.qrcode.makeCode(value);
+        }
+      });
+
+    })();
+  </script>
+</dom-module>

@@ -3,9 +3,10 @@
 <link rel="import" href="../transforms/ticket-code-transform.html">
 <link rel="import" href="../transforms/ticket-optional.html">
 <link rel="import" href="../transforms/ticket-processing-time-transform.html">
+<link rel="import" href="../transforms/ticket-operational-workstations-transform.html">
 <link rel="import" href="../transforms/ticket-fields-list.html">
 
-<ticket-template-register name="bl-live">
+<ticket-template-register name="crimea-live">
   <template>
     <style>
       .ticket-delimiter {
@@ -41,12 +42,17 @@
       <div id="TICKET_ID" style="font-family: px-sans, sans-serif; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 44px; font-weight: bold;">
         [[ticket.raw_label]]
       </div>
+      <ticket-fields-list style="font-size: 12px; text-align: center; width: 100%;" ticket="[[ticket]]"></ticket-fields-list>
     </div>
 
     <div class="ticket-delimiter"></div>
 
     <div class="ticket-block">
       <div style="padding: 5px 0; font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 45%; font-size: 10px;">
+        <span>[[ticket.user_info_description.service_count.label]]:</span>
+        <span style="font-weight: bold;">[[ticket.service_count]]</span>
+      </div>
+      <div style="padding: 5px 0; font-family: px-sans, sans-serif; float: right; margin-left: auto; margin-right: auto; text-align: left; width: 45%; font-size: 10px;">
         <span>ПИН-код:</span>
         <ticket-code-transform ticket="[[ticket]]" style="font-weight: bold; display: inline;"></ticket-code-transform>
       </div>
@@ -61,16 +67,33 @@
         <span style="text-align: center; ">Количество человек в очереди:</span>
         <span style="font-weight: bold;">[[context.queue_length]]</span>
       </div>
-
+      <!--
+      <div style="padding: 5px 0; font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 100%; font-size: 10px">
+              <span style="text-align: center; ">Предварительная запись:</span>
+              <span style="font-weight: bold;">    <ticket-processing-time-transform style="display: inline-block;" ticket="[[ticket]]" format="D.MM.YYYY dd H:mm"></ticket-processing-time-transform></span>
+            </div>
+          -->
     </div>
 
     <div class="ticket-delimiter"></div>
 
     <div class="ticket-block">
-      <div style="font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold;  width: 100%; padding-bottom: 10px;">
-        <ticket-fields-list ticket="[[ticket]]"></ticket-fields-list>
+      <div style="padding-bottom: 15px; font-family: px-sans, sans-serif; font-size: 14px; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
+        <span style="text-align: left;">
+          <ticket-operational-workstations labels="[[context.ws_labels]]"></ticket-operational-workstations>
+        </span>
       </div>
+      <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 45%; font-size: 10px">
+        Л : льготный
+      </div>
+      <div style="font-family: px-sans, sans-serif; float: right; margin-left: auto; margin-right: auto; text-align: center; width: 45%; font-size: 10px">
+        П : предварительная запись
+      </div>
+    </div>
 
+    <div class="ticket-delimiter"></div>
+
+    <div class="ticket-block">
       <div style=" font-family: px-sans, sans-serif; clear: both; text-align: center; width: 100%; font-size: 16px; font-weight: bold;">
         Услуга
         <p>
@@ -82,7 +105,7 @@
   </template>
 </ticket-template-register>
 
-<ticket-template-register name="bl-prebook">
+<ticket-template-register name="crimea-prebook">
   <template>
 
     <style>
@@ -100,7 +123,6 @@
       }
 
     </style>
-
     <div style="float: right; margin-left: auto; margin-right: auto; width: 30%;">
       <img id="logoTarget" border="0" alt="" src="../../images/logo-bw-short.png" style="height: 40px; float: right; padding-bottom: 5px;"/>
     </div>
@@ -127,12 +149,17 @@
           терминале в день приема, ждем вас!
         </p>
       </div>
+      <ticket-fields-list style="font-size: 12px; text-align: center; width: 100%; padding-top: 15px;" ticket="[[ticket]]"></ticket-fields-list>
     </div>
 
     <div class="ticket-delimiter"></div>
 
     <div class="ticket-block">
       <div style="padding: 5px 0; font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 45%; font-size: 10px;">
+        <span>[[ticket.user_info_description.service_count.label]]:</span>
+        <span id="SVC_COUNT" style="font-weight: bold;">[[ticket.service_count]]</span>
+      </div>
+      <div style="padding: 5px 0; font-family: px-sans, sans-serif; float: right; margin-left: auto; margin-right: auto; text-align: left; width: 45%; font-size: 10px;">
         <span>ПИН-код:</span>
         <ticket-code-transform ticket="[[ticket]]" style="font-weight: bold; display: inline;"></ticket-code-transform>
       </div>
@@ -153,10 +180,6 @@
     <div class="ticket-delimiter"></div>
 
     <div class="ticket-block">
-      <div style="font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold;  text-align: left; width: 100%;">
-        <ticket-fields-list ticket="[[ticket]]"></ticket-fields-list>
-      </div>
-
       <div style=" font-family: px-sans, sans-serif; clear: both; text-align: center; width: 100%; font-size: 16px; font-weight: bold;">
         Услуга
         <p>
@@ -168,7 +191,7 @@
   </template>
 </ticket-template-register>
 
-<ticket-template-register name="bl-register">
+<ticket-template-register name="crimea-register">
   <template>
     <style>
       .ticket-delimiter {
@@ -185,7 +208,6 @@
       }
 
     </style>
-
     <div style="float: right; margin-left: auto; margin-right: auto; width: 30%;">
       <img id="logoTarget" border="0" alt="" src="../../images/logo-bw-short.png" style="height: 40px; float: right; padding-bottom: 5px;"/>
     </div>
@@ -205,12 +227,17 @@
       <div id="TICKET_ID" style="font-family: px-sans, sans-serif; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 44px; font-weight: bold;">
         [[ticket.raw_label]]
       </div>
+      <ticket-fields-list style="font-size: 12px; text-align: center; width: 100%;" ticket="[[ticket]]"></ticket-fields-list>
     </div>
 
     <div class="ticket-delimiter"></div>
 
     <div class="ticket-block">
       <div style="padding: 5px 0; font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 45%; font-size: 10px;">
+        <span>[[ticket.user_info_description.service_count.label]]:</span>
+        <span style="font-weight: bold;">[[ticket.service_count]]</span>
+      </div>
+      <div style="padding: 5px 0; font-family: px-sans, sans-serif; float: right; margin-left: auto; margin-right: auto; text-align: left; width: 45%; font-size: 10px;">
         <span>ПИН-код:</span>
         <ticket-code-transform ticket="[[ticket]]" style="font-weight: bold; display: inline;"></ticket-code-transform>
       </div>
@@ -232,8 +259,22 @@
     <div class="ticket-delimiter"></div>
 
     <div class="ticket-block">
-      <ticket-fields-list style="font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold;  text-align: left; width: 100%;" ticket="[[ticket]]"></ticket-fields-list>
+      <div style="padding-bottom: 15px; font-family: px-sans, sans-serif; font-size: 14px; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
+        <span style="text-align: left;">
+          <ticket-operational-workstations labels="[[context.ws_labels]]"></ticket-operational-workstations>
+        </span>
+      </div>
+      <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 45%; font-size: 10px">
+        Л : льготный
+      </div>
+      <div style="font-family: px-sans, sans-serif; float: right; margin-left: auto; margin-right: auto; text-align: center; width: 45%; font-size: 10px">
+        П : предварительная запись
+      </div>
+    </div>
 
+    <div class="ticket-delimiter"></div>
+
+    <div class="ticket-block">
       <div style=" font-family: px-sans, sans-serif; clear: both; text-align: center; width: 100%; font-size: 16px; font-weight: bold;">
         Услуга
         <p>

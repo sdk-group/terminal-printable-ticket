@@ -2,46 +2,30 @@
 <link rel="import" href="../transforms/ticket-time-transform.html">
 <link rel="import" href="../transforms/ticket-code-transform.html">
 <link rel="import" href="../transforms/ticket-optional.html">
+<link rel="import" href="../transforms/ticket-fields-list.html">
 <link rel="import" href="../transforms/ticket-processing-time-transform.html">
-
-
 
 <ticket-template-register name="live">
   <template>
-
+    <div style="float: right; margin-left: auto; margin-right: auto; width: 30%;">
+      <img id="logoTarget" border="0" alt="" src="../../images/logo-bw-short.png" style="height: 40px; float: right; padding-bottom: 5px;"/>
+    </div>
 
     <div style="font-family: px-sans, sans-serif; float: left; width: 70%; margin-top: 0px;">
       <span style="font-family: px-sans, sans-serif; font-weight: bold; font-size: 8px;">[[office.label]]</span>
-      <br />
-      <span style="font-family: px-sans, sans-serif; font-weight: bold; font-size: 8px;">[[office.formatted_address]]</span> -->
+      <br/>
+      <span style="font-family: px-sans, sans-serif; font-weight: bold; font-size: 8px;">[[office.formatted_address]]</span>
+
     </div>
 
     <div style="float: left; width: 100%; margin: 0px auto; border-top: 3px solid black;">
-
-      <!--
-          <span id="OFFICE_CODE">КОД_ОФИСА</span>
-          <span id="OIV">ОИВ</span>
-          <span id="OFFICE_ADDRESS">АДРЕС_ОФИСА</span>
-          <span id="TICKET_TYPE">ТИП_ТАЛОНА</span>
-            <div id="SVC_CODE_DIV">
-      <span id="SVC_CODE">КОД_УСЛУГИ</span>
-      </div>
-                  <div id="EMPLOYEE_DIV">
-                  <span id="EMPLOYEE_FIO">ФИО_ОПЕРАЦИОНИСТ</span>
-                  <span id="EMPLOYEE">ФИ_ОПЕРАЦИОНИСТ</span>
-                  </div>
-          <div id="TICKET_ADD_TEXT" style="font-size:12px; text-align: center; margin-left:auto; margin-right: auto; width: 90%;">РЕКЛАМНЫЙ_ТЕКСТ</div>
-          <div id="TICKET_BARCODE" style="text-align: center; margin-left:auto; margin-right: auto; width: 70%;">ШТРИХ_КОД</div>
-    <span id="SVC_WINDOW_NUMBERS">НОМЕР_ОКНА</span>
-    <span id="TICKET_CODE">КОД_ТАЛОНА</span>
-          -->
 
       <div style="font-family: px-sans, sans-serif; font-weight: bold; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
         НОМЕР ТАЛОНА
       </div>
 
       <div id="TICKET_ID" style="font-family: px-sans, sans-serif; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 44px; font-weight: bold;">
-        [[ticket.label]]
+        [[ticket.raw_label]]
       </div>
 
       <div style="float: center; width: 40%; margin: 0.4em auto; border-top: 3px solid black;"></div>
@@ -50,40 +34,24 @@
         <span style="text-align: left;">[[service.label]]</span>
       </div>
 
-      <!--<div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 8px;">
-  <span id="SVC_NAME" style="text-align: left">НАИМЕНОВАНИЕ_УСЛУГИ</span>
-  </div> -->
-
       <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 8px;">
         <span id="SVC_DESC" style="text-align: left">[[service.description]]</span>
       </div>
 
       <div id="USER_NAME_DIV" style="font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
         <ticket-optional data="[[ticket.user_info.fio]]">
-          <span> ФИО:</span>
+          <span>
+            ФИО:
+          </span>
           <span id="USER_NAME" style="text-transform: capitalize; font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold;">[[ticket.user_info.fio]]</span>
         </ticket-optional>
+        <ticket-fields-list ticket="[[ticket]]"></ticket-fields-list>
       </div>
 
-      <!--  <div id="PRINT_TIME" style="font-size: 9px; font-weight: bold; font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
-      <span>Время приема: </span>
-        <span id="TICKET_DATE">ДАТА</span>
-        <span id="TICKET_TIME">ВРЕМЯ</span>
-      </div>-->
-
-
-      <!--<div id="QUEUE_POSITION_DIV" style="font-size: 9px; font-weight: bold; font-family: px-sans, sans-serif; float: left; text-align: center; margin-left: auto; margin-right: auto; width: 100%;">
-      <span>Перед вами:</span>
-      <span id="QUEUE_POSITION">ЧЕЛОВЕК_В_ОЧЕРЕДИ</span>
-      <span> чел.</span>
-    </div>-->
-
       <div style="font-family: px-sans, sans-serif; float: left; width: 100%; margin: 0px auto; border-top: 3px solid black;"></div>
-      <!--        <div id="TICKET_BARCODE" style="text-align: center; margin-left:auto; margin-right: auto; width: 100%;">ШТРИХ_КОД</div>
-  <div style="font-family: px-sans, sans-serif; float: left; width: 100%; margin: 0px auto; border-top: 3px solid black;"></div> -->
 
       <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 60%; font-size: 10px;">
-        <span>Число дел:</span>
+        <span>[[ticket.user_info_description.service_count.label]]:</span>
         <span id="SVC_COUNT" style="font-weight: bold;">[[ticket.service_count]]</span>
       </div>
 
@@ -97,73 +65,80 @@
       </div>
 
       <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 40%; font-size: 10px;">
-        <span style="font-weight: bold;"><ticket-time-transform data="[[ticket.booking_date]]" format="D.MM.YYYY H:mm"></ticket-time-transform></span>
+        <span style="font-weight: bold;">
+          <ticket-time-transform data="[[ticket.booking_date]]" format="D.MM.YYYY H:mm"></ticket-time-transform>
+        </span>
       </div>
-  </template>
-</ticket-template-register>
+    </template>
+  </ticket-template-register>
 
-<ticket-template-register name="prebook">
-  <template>
-
-
-    <div style="font-family: px-sans, sans-serif; float: left; width: 70%; margin-top: 0px;">
-      <!--<span style="font-family: px-sans, sans-serif; font-weight: bold; font-size: 8px;">[[office.1.label]]</span>-->
-    </div>
-
-    <div style="float: left; width: 100%; margin: 0px auto; border-top: 3px solid black;">
-
-      <div style="font-size: 12px; font-family: px-sans, sans-serif; font-weight: bold; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
-        <p style="    margin: 0.3em;"> Талон предварительной записи </p>
-        <p style="    margin: 0.3em;"> Необходима регистрация по пин-коду на </p>
-        <p style="    margin: 0.3em;"> терминале в день приема, ждем вас! </p>
+  <ticket-template-register name="prebook">
+    <template>
+      <div style="float: right; margin-left: auto; margin-right: auto; width: 30%;">
+        <img id="logoTarget" border="0" alt="" src="../../images/logo-bw-short.png" style="height: 40px; float: right; padding-bottom: 5px;"/>
       </div>
 
-      <div id="TICKET_ID" style="font-family: px-sans, sans-serif; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 16px; font-weight: bold;">
-        Пин-код:
-        <ticket-code-transform ticket="[[ticket]]" style="font-size: 36px"></ticket-code-transform>
-      </div>
-      <div style="font-family: px-sans, sans-serif; font-weight: bold; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
-        Время приема:
-        <ticket-processing-time-transform ticket="[[ticket]]" format="dd D.MM.YYYY H:mm"></ticket-processing-time-transform>
-      </div>
-      <div style="float: center; width: 40%; margin: 0.4em auto; border-top: 3px solid black;"></div>
+      <div style="float: left; width: 100%; margin: 0px auto; border-top: 3px solid black;">
 
-      <div style="font-family: px-sans, sans-serif; font-size: 12px; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
-        <span style="text-align: left;">[[service.label]]</span>
-      </div>
+        <div style="font-size: 12px; font-family: px-sans, sans-serif; font-weight: bold; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
+          <p style="    margin: 0.3em;">
+            Талон предварительной записи
+          </p>
+          <p style="    margin: 0.3em;">
+            Необходима регистрация по пин-коду на
+          </p>
+          <p style="    margin: 0.3em;">
+            терминале в день приема, ждем вас!
+          </p>
+        </div>
 
+        <div id="TICKET_ID" style="font-family: px-sans, sans-serif; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 16px; font-weight: bold;">
+          Пин-код:
+          <ticket-code-transform ticket="[[ticket]]" style="font-size: 36px"></ticket-code-transform>
+        </div>
+        <div style="font-family: px-sans, sans-serif; font-weight: bold; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
+          Время приема:
+          <ticket-processing-time-transform ticket="[[ticket]]" format="dd D.MM.YYYY H:mm"></ticket-processing-time-transform>
+        </div>
+        <div style="float: center; width: 40%; margin: 0.4em auto; border-top: 3px solid black;"></div>
 
-      <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 8px;">
-        <span id="SVC_DESC" style="text-align: left">[[service.description]]</span>
-      </div>
+        <div style="font-family: px-sans, sans-serif; font-size: 12px; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
+          <span style="text-align: left;">[[service.label]]</span>
+        </div>
 
-      <div id="USER_NAME_DIV" style="font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
-        <ticket-optional data="[[ticket.user_info.fio]]">
-          <span> ФИО:</span>
-          <span id="USER_NAME" style="text-transform: capitalize; font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold;">[[ticket.user_info.fio]]</span>
-        </ticket-optional>
-      </div>
+        <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 8px;">
+          <span id="SVC_DESC" style="text-align: left">[[service.description]]</span>
+        </div>
 
+        <div id="USER_NAME_DIV" style="font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
+          <ticket-optional data="[[ticket.user_info.fio]]">
+            <span>
+              ФИО:</span>
+            <span id="USER_NAME" style="text-transform: capitalize; font-family: px-sans, sans-serif; font-size: 9px; font-weight: bold;">[[ticket.user_info.fio]]</span>
+          </ticket-optional>
+          <ticket-fields-list ticket="[[ticket]]"></ticket-fields-list>
+        </div>
 
-      <div style="font-family: px-sans, sans-serif; float: left; width: 100%; margin: 0px auto; border-top: 3px solid black;"></div>
+        <div style="font-family: px-sans, sans-serif; float: left; width: 100%; margin: 0px auto; border-top: 3px solid black;"></div>
 
+        <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 60%; font-size: 10px;">
+          <span>[[ticket.user_info_description.service_count.label]]:</span>
+          <span id="SVC_COUNT" style="font-weight: bold;">[[ticket.service_count]]</span>
+        </div>
 
-      <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 60%; font-size: 10px;">
-        <span>Число дел:</span>
-        <span id="SVC_COUNT" style="font-weight: bold;">[[ticket.service_count]]</span>
-      </div>
+        <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 40%;">
+          <span style="text-align: center; font-size: 10px">Талон выдан:</span>
+        </div>
 
-      <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 40%;">
-        <span style="text-align: center; font-size: 10px">Талон выдан:</span>
-      </div>
+        <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 60%; font-size: 10px;">
+          <span>ПИН-код:</span>
+          <span id="SECRET_CODE" style="font-weight: bold;">[[ticket.code]]</span>
+        </div>
 
-      <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 60%; font-size: 10px;">
-        <span>ПИН-код:</span>
-        <span id="SECRET_CODE" style="font-weight: bold;">[[ticket.code]]</span>
-      </div>
-
-      <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 40%; font-size: 10px;">
-        <span style="font-weight: bold;"><ticket-time-transform data="[[ticket.booking_date]]" format="D.MM.YYYY H:mm"></ticket-time-transform></span>
-      </div>
-  </template>
-</ticket-template-register>
+        <div style="font-family: px-sans, sans-serif; float: left; margin-left: auto; margin-right: auto; text-align: left; width: 40%; font-size: 10px;">
+          <span style="font-weight: bold;">
+            <ticket-time-transform data="[[ticket.booking_date]]" format="D.MM.YYYY H:mm"></ticket-time-transform>
+          </span>
+        </div>
+      </template>
+    </ticket-template-register>

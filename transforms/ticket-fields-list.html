@@ -1,0 +1,32 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<dom-module id="ticket-fields-list">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+    </style>
+
+    <div id="fields"></div>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'ticket-fields-list',
+      properties: {
+        ticket: {
+          type: Object,
+          value: {},
+          observer: '_computeFields'
+        }
+      },
+      _computeFields(ticket) {
+        let str = _.sumBy(ticket.field_list, field => `<div><span> ${field.label}: </span> <span style="text-transform: uppercase;"> ${field.value} </span></div>`);
+
+        Polymer.dom(this.$.fields).innerHTML = str || '';
+      }
+    });
+  </script>
+</dom-module>

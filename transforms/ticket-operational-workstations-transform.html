@@ -8,14 +8,18 @@
       }
 
     </style>
-    Окна: [[transform(labels)]]
+    [[description]] [[transform(labels)]]
   </template>
   <script>
     Polymer({
       is: 'ticket-operational-workstations',
       properties: {
         labels: {
-          type: Boolean
+          type: Array
+        },
+        description: {
+          type: String,
+          value: "Окна:"
         }
       },
       transform(raw_labels) {
