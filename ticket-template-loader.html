@@ -1,0 +1,49 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="ticket-template-loader">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+    </style>
+    <iris-currentuser is-logged="{{isLogged}}"></iris-currentuser>
+    <iris-settings-access id="settings"></iris-settings-access>
+
+    <div id="external"></div>
+  </template>
+  <script>
+    Polymer({
+      is: 'ticket-template-loader',
+      properties: {
+        dest: {
+          type: String,
+          observer: 'templateNameChanged'
+        }
+      },
+      ready() {
+        // this.scopeSubtree(this.$.external, true);
+      },
+      templateNameChanged(e) {
+        let server = this.$.settings.getItem('data_server');
+        let port = this.$.settings.getItem('data_port');
+        let root = port
+          ? (server + ':' + port)
+          : server;
+
+        let url = 'http://' + root + this.dest;
+        console.log('LOADING', url);
+        let importElem = document.createElement('link');
+        importElem.rel = 'import';
+        importElem.href = url;
+
+        importElem.addEventListener('load', () => {
+          console.log('Tickets templates loaded');
+        });
+
+        this.appendChild(importElem);
+      }
+    });
+  </script>
+</dom-module>

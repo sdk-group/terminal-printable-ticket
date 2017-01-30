@@ -2,11 +2,15 @@
 
 <link rel="import" href="imports.html">
 <link rel="import" href="ticket-print-styles.html">
-<link rel="import" href="templates/oren.html">
-<link rel="import" href="templates/bl.html">
-<link rel="import" href="templates/med.html">
-<link rel="import" href="templates/momed.html">
-<link rel="import" href="templates/crimea.html">
+<link rel="import" href="ticket-template-loader.html">
+
+<link rel="import" href="ticket-template-register.html">
+<link rel="import" href="transforms/ticket-time-transform.html">
+<link rel="import" href="transforms/ticket-code-transform.html">
+<link rel="import" href="transforms/ticket-optional.html">
+<link rel="import" href="transforms/ticket-processing-time-transform.html">
+<link rel="import" href="transforms/ticket-operational-workstations-transform.html">
+<link rel="import" href="transforms/ticket-fields-list.html">
 
 <dom-module id="terminal-printable-ticket">
   <template>
@@ -31,6 +35,7 @@
     <iris-shared-entities id="office" namespace="office"></iris-shared-entities>
     <iris-shared-entities id="hierarchy" namespace="hierarchy"></iris-shared-entities>
     <iris-shared-entities id="departments" namespace="departments"></iris-shared-entities>
+    <!-- <ticket-template-loader name="test"></ticket-template-loader> -->
 
     <div class="ticket-print-view">
       <div style="display:none; float: right; margin-left: auto; margin-right: auto; width: 30%;">

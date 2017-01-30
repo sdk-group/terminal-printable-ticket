@@ -1,10 +1,3 @@
-<link rel="import" href="../ticket-template-register.html">
-<link rel="import" href="../transforms/ticket-time-transform.html">
-<link rel="import" href="../transforms/ticket-code-transform.html">
-<link rel="import" href="../transforms/ticket-optional.html">
-<link rel="import" href="../transforms/ticket-processing-time-transform.html">
-<link rel="import" href="../transforms/ticket-fields-list.html">
-
 <ticket-template-register name="med-live">
   <template>
     <style>
@@ -39,7 +32,7 @@
         НОМЕР ТАЛОНА
       </div>
       <div id="TICKET_ID" style="font-family: px-sans, sans-serif; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 44px; font-weight: bold;">
-        [[ticket.raw_label]]
+        [[ticket.label]]
       </div>
       <div style="font-family: px-sans, sans-serif; font-weight: bold; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
         <ticket-operational-workstations labels="[[context.ws_full_labels]]" description=""></ticket-operational-workstations>,
@@ -180,7 +173,7 @@
         НОМЕР ТАЛОНА
       </div>
       <div id="TICKET_ID" style="font-family: px-sans, sans-serif; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%; font-size: 44px; font-weight: bold;">
-        [[ticket.raw_label]]
+        [[ticket.label]]
       </div>
       <div style="font-family: px-sans, sans-serif; font-weight: bold; float: center; margin-left: auto; margin-right: auto; text-align: center; width: 100%;">
         <ticket-operational-workstations labels="[[context.ws_full_labels]]" description=""></ticket-operational-workstations>,
